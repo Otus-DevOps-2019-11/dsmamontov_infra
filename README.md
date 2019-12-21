@@ -1,6 +1,7 @@
 # dsmamontov_infra
 dsmamontov Infra repository
 
+#
 
 bastion_IP = 35.230.101.179
 someinternalhost_IP = 10.128.0.2
