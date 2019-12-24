@@ -11,6 +11,9 @@
 
 #sudo apt-get update
 #sudo apt install -y ruby-full ruby-bundler build-essential
+#runuser -l "appuser" -c "git clone -b monolith https://github.com/express42/reddit.git /home/appuser/reddit"
+#runuser -l "appuser" -c "cd ~appuser/reddit && bundle install"
+#runuser -l "appuser" -c "puma -d --dir /home/appuser/reddit/"
 
 wget -qO - https://www.mongodb.org/static/pgp/server-3.2.asc | sudo apt-key add -
 sudo bash -c 'echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" > /etc/apt/sources.list.d/mongodb-org-3.2.list'
@@ -24,6 +27,3 @@ git clone -b monolith https://github.com/express42/reddit.git
 cd reddit && bundle install
 puma -d
 
-#runuser -l "appuser" -c "git clone -b monolith https://github.com/express42/reddit.git /home/appuser/reddit"
-#runuser -l "appuser" -c "cd ~appuser/reddit && bundle install"
-#runuser -l "appuser" -c "puma -d --dir /home/appuser/reddit/"

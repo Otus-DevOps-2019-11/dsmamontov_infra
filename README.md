@@ -1,7 +1,7 @@
 # dsmamontov_infra
 dsmamontov Infra repository
 ```
-testapp_IP = 35.224.64.222 
+testapp_IP = 35.224.189.166 
 testapp_port = 9292
 
 
