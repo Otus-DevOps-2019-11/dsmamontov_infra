@@ -9,3 +9,4 @@ gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family 
 
 gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --source-tags=puma-server --source-ranges=0.0.0.0/0 
 ```
+
