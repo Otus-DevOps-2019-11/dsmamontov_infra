@@ -27,6 +27,7 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
 ```
 
 здание: packer-base
+
 собран образ reddit-full и запечен так, чтобы приложеие стартовало после создания ВМ.
 в образ вшиты все пакеты и системд-юнит
 новую ВМ можно поднять из консоли скриптом ```create-reddit-vm.sh ```
