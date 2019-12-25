@@ -25,3 +25,8 @@ testapp_port = 9292
 gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --metadata-from-file startup-script=startup-script.sh
 gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --source-tags=puma-server --source-ranges=0.0.0.0/0 
 ```
+
+здание: packer-base
+собран образ reddit-full и запечен так, чтобы приложеие стартовало после создания ВМ.
+в образ вшиты все пакеты и системд-юнит
+новую ВМ можно поднять из консоли скриптом ```create-reddit-vm.sh ```
