@@ -1,0 +1,14 @@
+[Unit]
+Description=Rddit APP
+Documentation=https://github.com/Otus-DevOps-2019-11/dsmamontov_infra
+After=network.target 
+
+[Service]
+Type=notify
+ExecStart=/usr/local/bin/puma -d --dir /home/appuser/reddit/
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=on-abnormal
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

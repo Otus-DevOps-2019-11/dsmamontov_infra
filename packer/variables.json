@@ -1,0 +1,10 @@
+{
+  "project_id_var": "engaged-oarlock-262618",
+  "source_image_family_var": "ubuntu-1604-lts",
+  "machine_type_var": "f1-micro",
+  "network_var": "projects/engaged-oarlock-262618/global/networks/default",
+  "tag_var": "some-tag",
+  "disk_size_var": "11",
+  "image_description_var":"some_description"
+}
+
