@@ -31,3 +31,22 @@ gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --sour
 собран образ reddit-full и запечен так, чтобы приложеие стартовало после создания ВМ.
 в образ вшиты все пакеты и системд-юнит
 новую ВМ можно поднять из консоли скриптом ```create-reddit-vm.sh ```
+
+
+задание: terraform-1
+
+проблема 1
+
+пользователи как минимум создаются в странном порядке
+
+```
+appuser:x:1001:1002::/home/appuser:/bin/bash
+mongodb:x:113:65534::/home/mongodb:/bin/false
+appuser2:x:1002:1003::/home/appuser2:/bin/bash
+appuser_web:x:1003:1004::/home/appuser_web:/bin/bash
+appuser1:x:1004:1005::/home/appuser1:/bin/bash
+```
+
+проблема 2
+
+пользователь appuser_web не виден в метаданных через apply
