@@ -3,13 +3,11 @@ terraform {
   required_version = "0.12.18"
 }
 
-
 provider "google" {
   version = "2.15.0"
   project = var.project
   region  = var.region
 }
-
 
 resource "google_compute_instance" "app" {
   name         = "reddit-app-${count.index}"
@@ -25,7 +23,6 @@ resource "google_compute_instance" "app" {
     ssh-keys = "appuser:${file(var.public_key_path)} \nappuser1:${file(var.public_key_path1)} \nappuser2:${file(var.public_key_path2)}"
     
   }
-
 
   boot_disk {
     initialize_params {
@@ -44,9 +41,9 @@ resource "google_compute_instance" "app" {
     destination = "/tmp/puma.service"
   }
 
-#  provisioner "remote-exec" {
-#    script = "files/deploy.sh"
-#  }
+  provisioner "remote-exec" {
+    script = "files/deploy.sh"
+  }
 
   connection {
     type  = "ssh"
@@ -56,8 +53,6 @@ resource "google_compute_instance" "app" {
     # путь до приватного ключа
     private_key = file(var.conn_pk)
   }
-
-
 }
 
 resource "google_compute_firewall" "firewall_puma" {
