@@ -1,4 +1,0 @@
-project         = "ololo"
-public_key_path = "/home/d.mamontov/.ssh/id_rsa.pub"
-disk_image      = "reddit-base"
-conn_pk         = "/home/d.mamontov/.ssh/id_rsa"
