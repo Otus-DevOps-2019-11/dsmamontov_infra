@@ -2,6 +2,8 @@
 dsmamontov Infra repository
 
 #задание: terraform-2
+раснесены app и db ноды. настроены модули терраформа. модули app, db, vpc
+настроен бекенд в gcs
 
 #задание: terraform-1
 
