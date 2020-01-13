@@ -1,6 +1,10 @@
 # dsmamontov_infra
 dsmamontov Infra repository
 
+#задание: terraform-2
+раснесены app и db ноды. настроены модули терраформа. модули app, db, vpc
+настроен бекенд в gcs
+
 #задание: terraform-1
 
 проблема 1
@@ -24,13 +28,10 @@ appuser1:x:1004:1005::/home/appuser1:/bin/bash
 
 по заданию с 2 звёздами
 
-созданы: 
-* ресурс пул (я так и не понял чем он отличается от связки бекенд и инстанс групп), 
+созданы:
+* ресурс пул (я так и не понял чем он отличается от связки бекенд и инстанс групп),
 * healthcheck ( заработал нормально только депрекейтед https://www.terraform.io/docs/providers/google/r/compute_http_health_check.html, нормальный https://www.terraform.io/docs/providers/google/r/compute_health_check.html отказывался подниматься с таргет пулом)
 * google_compute_forwarding_rule (нашел только как один в один порт прокинуть в нем)
-
-
-
 
 
 #задание: cloud-bastion
@@ -51,11 +52,11 @@ ssh -p 2222 appuser@localhost
 
 #заданиe: test-app
 ```
-testapp_IP = 35.224.189.166 
+testapp_IP = 35.224.189.166
 testapp_port = 9292
 
 gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --metadata-from-file startup-script=startup-script.sh
-gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --source-tags=puma-server --source-ranges=0.0.0.0/0 
+gcloud compute firewall-rules create default-puma-server --allow tcp:9292 --source-tags=puma-server --source-ranges=0.0.0.0/0
 ```
 
 #здание: packer-base
