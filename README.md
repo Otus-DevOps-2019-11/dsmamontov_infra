@@ -1,6 +1,53 @@
 # dsmamontov_infra
 dsmamontov Infra repository
 
+#задание: ansible-1
+так как удаляем папку с репозиторием, то при выолнении плейбука появляется
+TASK [Clone repo]
+changed: [appserver]
+
+потому что модуль ансибла видит отсутвисе репозитория и клинирует его ещё раз
+
+```
+ ansible all -m ping -i inventory.json 
+dbserver | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+appserver | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+
+```
+
+пример использования скрипта
+
+```
+ ansible all -m ping -i inv.py 
+dbserver | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+appserver | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+
+```
+
 #задание: terraform-2
 раснесены app и db ноды. настроены модули терраформа. модули app, db, vpc
 настроен бекенд в gcs
