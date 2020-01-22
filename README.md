@@ -1,6 +1,29 @@
 # dsmamontov_infra
 dsmamontov Infra repository
 
+#задание: ansible-2
+были созданы плебуки для деплоя базы и приложения
+так же были настроены деплои образов packer
+настроено автоматическое получение инвентори
+```
+[~/projects/dsmamontov_infra/ansible]$ ansible -i inventory.gcp.yml all -m ping                                                                                                               *[ansible-2]
+35.195.234.221 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+104.155.107.57 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
+
+
 #задание: ansible-1
 так как удаляем папку с репозиторием, то при выолнении плейбука появляется
 TASK [Clone repo]
@@ -9,19 +32,19 @@ changed: [appserver]
 потому что модуль ансибла видит отсутвисе репозитория и клинирует его ещё раз
 
 ```
- ansible all -m ping -i inventory.json 
+ ansible all -m ping -i inventory.json
 dbserver | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python"
-    }, 
-    "changed": false, 
+    },
+    "changed": false,
     "ping": "pong"
 }
 appserver | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python"
-    }, 
-    "changed": false, 
+    },
+    "changed": false,
     "ping": "pong"
 }
 
@@ -30,19 +53,19 @@ appserver | SUCCESS => {
 пример использования скрипта
 
 ```
- ansible all -m ping -i inv.py 
+ ansible all -m ping -i inv.py
 dbserver | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python"
-    }, 
-    "changed": false, 
+    },
+    "changed": false,
     "ping": "pong"
 }
 appserver | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python"
-    }, 
-    "changed": false, 
+    },
+    "changed": false,
     "ping": "pong"
 }
 
