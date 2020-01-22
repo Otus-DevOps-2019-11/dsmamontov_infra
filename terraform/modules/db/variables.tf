@@ -21,6 +21,10 @@ variable db_disk_image {
 }
 variable conn_pk {
   description = "connection private key"
-  default     = "/Users/irina/.ssh/id_rsa"
-  #  default     = "/home/kabanchik228/.ssh/id_rsa"
+  #default     = "/Users/irina/.ssh/id_rsa"
+  default     = "/home/kabanchik228/.ssh/id_rsa"
+}
+variable label_env {
+  description = "labels"
+  default     = "test"
 }

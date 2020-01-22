@@ -3,6 +3,8 @@ resource "google_compute_instance" "db" {
   machine_type = "g1-small"
   zone         = var.zone_conn
   tags         = ["reddit-db"]
+  labels       = { env = var.label_env }
+
   boot_disk {
     initialize_params {
       image = var.db_disk_image
@@ -16,9 +18,9 @@ resource "google_compute_instance" "db" {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
 
-  provisioner "remote-exec" {
-    inline = ["sudo sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf && sudo service mongod restart"]
-  }
+#  provisioner "remote-exec" {
+#    inline = ["sudo sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf && sudo service mongod restart"]
+#  }
   connection {
     type  = "ssh"
     host  = self.network_interface[0].access_config[0].nat_ip
