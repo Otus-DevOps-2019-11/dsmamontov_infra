@@ -3,6 +3,8 @@ resource "google_compute_instance" "app" {
   machine_type = "g1-small"
   zone         = var.zone_conn
   tags         = ["reddit-app"]
+ # labels         = var.labels
+  labels       = { env = var.label_env }
 
   boot_disk {
     initialize_params { image = var.app_disk_image }
@@ -48,6 +50,17 @@ resource "google_compute_firewall" "firewall_puma" {
   allow {
     protocol = "tcp"
     ports    = ["9292"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["reddit-app"]
+}
+
+resource "google_compute_firewall" "firewall_puma_http" {
+  name    = "allow-puma-http"
+  network = "default"
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
   }
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["reddit-app"]
