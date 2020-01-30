@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
       ansible.playbook = "playbooks/site.yml"
       ansible.groups = {
       "app" => ["appserver"],
-      "app:vars" => { "db_host" => "10.10.10.10", 
+      "app:vars" => { "db_host" => "10.10.10.10",
                       "deploy_user" => "vagrant"}
       }
     end
