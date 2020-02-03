@@ -2,11 +2,20 @@
 - name: Install Ruby && Bundler
   hosts: all
   become: true
-  tasks:
+  vars:
+    nginx_sites:
+      default:
+        - listen 80
+        - server_name "reddit"
+        - location / { proxy_pass http://127.0.0.1:9292; }
+  roles:
+    - app
+    - jdauphant.nginx
+  #tasks:
   # Установим в цикле все зависимости
-  - name: Install ruby and rubygems and required packages
-    apt: "name={{ item }} state=present"
-    with_items:
-      - ruby-full
-      - ruby-bundler
-      - build-essential
+  #- name: Install ruby and rubygems and required packages
+  #  apt: "name={{ item }} state=present"
+  #  with_items:
+  #    - ruby-full
+  #    - ruby-bundler
+  #    - build-essential
